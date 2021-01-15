@@ -196,15 +196,14 @@ namespace vietlot
          }
         private void button4_Click_1(object sender, EventArgs e)
         {
-            //String[] ketqua = ;
-            // System.IO.File.WriteAllLines("D:/winForm/xsvlForm/ketqua.txt", ketqua);
+            
             DateTime now = DateTime.Now;
-
             String filepath = "D:/winForm/xsvlForm/ketqua.txt";
             FileStream fs = new FileStream(filepath, FileMode.Create);
             StreamWriter sWriter = new StreamWriter(fs, Encoding.UTF8);
             string ketquaxs = textquayso1.Text;
-            sWriter.WriteLine(ketquaxs);
+            sWriter.WriteLine("Ngày Quay Số: "+ now);
+            sWriter.WriteLine("Kết quả: "+ ketquaxs);
             sWriter.Flush();
             fs.Close();
 

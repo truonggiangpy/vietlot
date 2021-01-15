@@ -30,7 +30,6 @@ namespace vietlot
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.textquayso1 = new System.Windows.Forms.RichTextBox();
             this.arraymuaso = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
@@ -38,15 +37,14 @@ namespace vietlot
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.jackbot2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button4 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.textquayso1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(100, 163);
+            this.button1.Location = new System.Drawing.Point(100, 181);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 41);
             this.button1.TabIndex = 0;
@@ -54,29 +52,20 @@ namespace vietlot
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textquayso1
-            // 
-            this.textquayso1.Location = new System.Drawing.Point(26, 11);
-            this.textquayso1.Name = "textquayso1";
-            this.textquayso1.Size = new System.Drawing.Size(289, 35);
-            this.textquayso1.TabIndex = 1;
-            this.textquayso1.Text = " ";
-            this.textquayso1.TextChanged += new System.EventHandler(this.textquayso_TextChanged);
-            // 
             // arraymuaso
             // 
-            this.arraymuaso.Location = new System.Drawing.Point(213, 257);
+            this.arraymuaso.Location = new System.Drawing.Point(213, 267);
             this.arraymuaso.Name = "arraymuaso";
-            this.arraymuaso.Size = new System.Drawing.Size(289, 44);
+            this.arraymuaso.Size = new System.Drawing.Size(289, 34);
             this.arraymuaso.TabIndex = 2;
             this.arraymuaso.Text = " ";
             this.arraymuaso.TextChanged += new System.EventHandler(this.arraymuaso_TextChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(100, 257);
+            this.button2.Location = new System.Drawing.Point(100, 267);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 47);
+            this.button2.Size = new System.Drawing.Size(78, 37);
             this.button2.TabIndex = 3;
             this.button2.Text = "Kiểm Tra";
             this.button2.UseVisualStyleBackColor = true;
@@ -129,15 +118,6 @@ namespace vietlot
             this.jackbot2.Visible = false;
             this.jackbot2.Click += new System.EventHandler(this.button4_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.textquayso1);
-            this.panel1.Location = new System.Drawing.Point(187, 163);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(358, 59);
-            this.panel1.TabIndex = 14;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(238, 50);
@@ -155,14 +135,23 @@ namespace vietlot
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
+            // textquayso1
+            // 
+            this.textquayso1.Location = new System.Drawing.Point(213, 181);
+            this.textquayso1.Name = "textquayso1";
+            this.textquayso1.Size = new System.Drawing.Size(289, 35);
+            this.textquayso1.TabIndex = 1;
+            this.textquayso1.Text = " ";
+            this.textquayso1.TextChanged += new System.EventHandler(this.textquayso_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 393);
+            this.Controls.Add(this.textquayso1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.jackbot2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
@@ -172,7 +161,6 @@ namespace vietlot
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Hoang";
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,7 +169,6 @@ namespace vietlot
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox textquayso1;
         private System.Windows.Forms.RichTextBox arraymuaso;
         private System.Windows.Forms.Button button2;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
@@ -189,9 +176,9 @@ namespace vietlot
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button jackbot2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RichTextBox textquayso1;
     }
 }
 
