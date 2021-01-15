@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace vietlot
     {
         Random random = new Random();
         int[] xoso = new int[7];
+
+        public object GetLink { get; private set; }
+
         int randomone(int rand)
         {
             var t = true;
@@ -41,7 +45,7 @@ namespace vietlot
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i <= 5; i++)
+            for (int i = 0; i <= 6; i++)
             {
                 int rand = 0;
                 var tam = randomone(rand);
@@ -63,7 +67,7 @@ namespace vietlot
 
             StringBuilder chuoi = new StringBuilder();
             String chuoixoso;
-            for (int i = 0; i <= 5; i++)
+            for (int i = 0; i <= 6; i++)
             {
                 var tamxo = xoso[i];
                 if (tamxo < 10)
@@ -75,16 +79,21 @@ namespace vietlot
                 {
                     chuoixoso = tamxo.ToString();
                 }
-                chuoi.Append(chuoixoso.ToString() + ' ');
+                if (i == 6)
+                {
+                    chuoi.Append("| ");
+                }
+                chuoi.Append(chuoixoso.ToString() + "   ");
             }
-            textquayso.Text = chuoi.ToString();
+            
+            textquayso1.Text = chuoi.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             var araay = arraymuaso.Text;
-            String[] arrListkeySearch = araay.Split(',');
-
+            String[] arrListkeySearch = araay.Split(' ');
+          
             int v = 0;
             int check = 0;
             while (v < 6) // mỗi 1 phần từ trong mảng nhập từ người dùng sẽ so sánh với tất cả phần từ trong mảng random của sổ số
@@ -115,10 +124,16 @@ namespace vietlot
             }
             else if (check == 5)
             {
-                jackbot2.Visible = true;
-                button3.Visible = true;
-                ketqua.Text = "Chúc Mừng bạn đã Trúng Giải 1";
+                if (Convert.ToInt32(arrListkeySearch[5]) == xoso[6])
+                {
+                    ketqua.Text = "Chúc Mừng bạn đã Trúng Giải jackbot2";
+                }
+                else
+                {
+                    ketqua.Text = "Chúc Mừng bạn đã Trúng Giải 1";
+                }
             }
+                     
             else if (check == 4)
             {
                 ketqua.Text = "Chúc Mừng bạn đã Trúng Giải 2";
@@ -127,6 +142,7 @@ namespace vietlot
             {
                 ketqua.Text = "Chúc Mừng bạn đã Trúng Giải 3";
             }
+            
             else {
                 ketqua.Text = "";
             }
@@ -149,30 +165,81 @@ namespace vietlot
                 {
                     chuoixoso = tamxo.ToString();
                 }
+               
                 if(i == 6)
                 {
                     chuoi.Append("| " + chuoixoso.ToString() + ' ');
                 }
                 else {
-                    chuoi.Append(chuoixoso.ToString() + ' ');
+                    chuoi.Append( chuoixoso.ToString() + ' ' );
                 }
+                 textquayso1.Text = chuoi.ToString();
                 
             }
-            textquayso.Text = chuoi.ToString();
+           
+
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+      private void button4_Click(object sender, EventArgs e)
+         {
+             var araay = arraymuaso.Text;
+             String[] arrListkeySearch = araay.Split(',');
+
+             if (Convert.ToInt32(arrListkeySearch[5]) == xoso[6])
+             {
+                 ketqua.Text = "Chúc Mừng bạn đã Trúng Giải jackbot2";
+             } else
+             {
+                 ketqua.Text = "sorry bạn chỉ trúng giải nhất";
+             }
+         }
+        private void button4_Click_1(object sender, EventArgs e)
         {
-            var araay = arraymuaso.Text;
-            String[] arrListkeySearch = araay.Split(',');
+            //String[] ketqua = ;
+            // System.IO.File.WriteAllLines("D:/winForm/xsvlForm/ketqua.txt", ketqua);
+            DateTime now = DateTime.Now;
 
-            if (Convert.ToInt32(arrListkeySearch[5]) == xoso[6])
-            {
-                ketqua.Text = "Chúc Mừng bạn đã Trúng Giải jackbot2";
-            } else
-            {
-                ketqua.Text = "sorry bạn chỉ trúng giải nhất";
-            }
+            String filepath = "D:/winForm/xsvlForm/ketqua.txt";
+            FileStream fs = new FileStream(filepath, FileMode.Create);
+            StreamWriter sWriter = new StreamWriter(fs, Encoding.UTF8);
+            string ketquaxs = textquayso1.Text;
+            sWriter.WriteLine(ketquaxs);
+            sWriter.Flush();
+            fs.Close();
+
+
         }
+        private void textquayso_TextChanged(object sender, EventArgs e)
+         {
+
+         }
+
+         private void arraymuaso_TextChanged(object sender, EventArgs e)
+         {
+
+         }
+
+         private void label2_Click(object sender, EventArgs e)
+         {
+
+         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
     }
 }

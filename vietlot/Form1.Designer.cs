@@ -30,7 +30,7 @@ namespace vietlot
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.textquayso = new System.Windows.Forms.RichTextBox();
+            this.textquayso1 = new System.Windows.Forms.RichTextBox();
             this.arraymuaso = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
@@ -38,39 +38,45 @@ namespace vietlot
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.jackbot2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(81, 41);
+            this.button1.Location = new System.Drawing.Point(100, 163);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 35);
+            this.button1.Size = new System.Drawing.Size(81, 41);
             this.button1.TabIndex = 0;
             this.button1.Text = "Quay số";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textquayso
+            // textquayso1
             // 
-            this.textquayso.Location = new System.Drawing.Point(229, 32);
-            this.textquayso.Name = "textquayso";
-            this.textquayso.Size = new System.Drawing.Size(261, 44);
-            this.textquayso.TabIndex = 1;
-            this.textquayso.Text = " ";
+            this.textquayso1.Location = new System.Drawing.Point(26, 11);
+            this.textquayso1.Name = "textquayso1";
+            this.textquayso1.Size = new System.Drawing.Size(289, 35);
+            this.textquayso1.TabIndex = 1;
+            this.textquayso1.Text = " ";
+            this.textquayso1.TextChanged += new System.EventHandler(this.textquayso_TextChanged);
             // 
             // arraymuaso
             // 
-            this.arraymuaso.Location = new System.Drawing.Point(229, 105);
+            this.arraymuaso.Location = new System.Drawing.Point(213, 257);
             this.arraymuaso.Name = "arraymuaso";
-            this.arraymuaso.Size = new System.Drawing.Size(261, 44);
+            this.arraymuaso.Size = new System.Drawing.Size(289, 44);
             this.arraymuaso.TabIndex = 2;
             this.arraymuaso.Text = " ";
+            this.arraymuaso.TextChanged += new System.EventHandler(this.arraymuaso_TextChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(81, 105);
+            this.button2.Location = new System.Drawing.Point(100, 257);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(77, 34);
+            this.button2.Size = new System.Drawing.Size(81, 47);
             this.button2.TabIndex = 3;
             this.button2.Text = "Kiểm Tra";
             this.button2.UseVisualStyleBackColor = true;
@@ -82,7 +88,7 @@ namespace vietlot
             this.ketqua.Enabled = false;
             this.ketqua.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ketqua.ForeColor = System.Drawing.Color.Red;
-            this.ketqua.Location = new System.Drawing.Point(138, 215);
+            this.ketqua.Location = new System.Drawing.Point(144, 82);
             this.ketqua.Name = "ketqua";
             this.ketqua.Size = new System.Drawing.Size(34, 29);
             this.ketqua.TabIndex = 4;
@@ -94,17 +100,18 @@ namespace vietlot
             this.label2.BackColor = System.Drawing.Color.Snow;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(283, 169);
+            this.label2.Location = new System.Drawing.Point(235, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 24);
+            this.label2.Size = new System.Drawing.Size(203, 24);
             this.label2.TabIndex = 5;
-            this.label2.Text = "kết quả xổ số";
+            this.label2.Text = "Kết Qủa Xổ Số Ngày";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(514, 35);
+            this.button3.Location = new System.Drawing.Point(515, 351);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(73, 41);
+            this.button3.Size = new System.Drawing.Size(81, 41);
             this.button3.TabIndex = 6;
             this.button3.Text = "Quay Số Đặt Biệt";
             this.button3.UseVisualStyleBackColor = true;
@@ -113,30 +120,59 @@ namespace vietlot
             // 
             // jackbot2
             // 
-            this.jackbot2.Location = new System.Drawing.Point(514, 105);
+            this.jackbot2.Location = new System.Drawing.Point(602, 349);
             this.jackbot2.Name = "jackbot2";
-            this.jackbot2.Size = new System.Drawing.Size(73, 44);
+            this.jackbot2.Size = new System.Drawing.Size(81, 44);
             this.jackbot2.TabIndex = 7;
             this.jackbot2.Text = "Kiểm Tra Jackbot2";
             this.jackbot2.UseVisualStyleBackColor = true;
             this.jackbot2.Visible = false;
             this.jackbot2.Click += new System.EventHandler(this.button4_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textquayso1);
+            this.panel1.Location = new System.Drawing.Point(187, 163);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(358, 59);
+            this.panel1.TabIndex = 14;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(238, 50);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 16;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(100, 345);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(81, 36);
+            this.button4.TabIndex = 17;
+            this.button4.Text = "Lưu kết Quả";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 368);
+            this.ClientSize = new System.Drawing.Size(681, 393);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.jackbot2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ketqua);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.arraymuaso);
-            this.Controls.Add(this.textquayso);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Hoang";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,7 +181,7 @@ namespace vietlot
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox textquayso;
+        private System.Windows.Forms.RichTextBox textquayso1;
         private System.Windows.Forms.RichTextBox arraymuaso;
         private System.Windows.Forms.Button button2;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
@@ -153,6 +189,9 @@ namespace vietlot
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button jackbot2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button4;
     }
 }
 
